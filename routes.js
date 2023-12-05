@@ -1,4 +1,3 @@
-// routes.js
 const express = require('express');
 const router = express.Router();
 const mysql = require('mysql');
@@ -82,11 +81,9 @@ router.get('/:id', (req, res) => {
   });
 });
 
-
 router.post('/', (req, res) => {
   const { product_name, product_price, product_description, id_categoria, product_stock } = req.body;
 
-  // Validación de datos
   if (!product_name || !product_price || !product_description || !id_categoria || !product_stock) {
     return res.status(400).json({ error: 'Todos los campos son obligatorios.' });
   }
@@ -101,7 +98,6 @@ router.post('/', (req, res) => {
     }
   });
 });
-
 
 router.put('/:id', (req, res) => {
   const { product_name, product_price, product_description, id_categoria, product_stock } = req.body;
